@@ -5,6 +5,7 @@ let logger = require('morgan');
 let bodyParser = require('body-parser');
 
 let pingRoutes = require('./Routes/pingRoutes');
+let blogRoutes = require('./Routes/blogRoutes');
 
 let app = express();
 
@@ -14,9 +15,10 @@ app.use(bodyParser.json());
 
 /* reserve for /api/apis */
 app.use('/api', pingRoutes);
+app.use('/api', blogRoutes);
 
 /* Error handling */
-app.use((req, res, next) => {
+app.use((err, req, res, next) => {
   next(createErrors(404, "We couldn't find this route :("));
 });
 app.use((err, req, res, next) => {
