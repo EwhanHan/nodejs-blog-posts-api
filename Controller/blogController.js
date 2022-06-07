@@ -24,10 +24,7 @@ const getPosts = async (req, res, next) => {
     }
   }
   let { tag, sortBy, direction } = req.query;
-
   tagsArr = tag.split(',');
-
-  console.log(tagsArr);
   let endPoints = [];
   for (let tag of tagsArr) {
     endPoints.push(blogPostsEndpointBuilder(tag, sortBy, direction));

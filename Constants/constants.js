@@ -25,7 +25,7 @@ const ERROR = {
     status: 400,
   },
   [VALID_PARAMS.direction]: {
-    [VALID_ERROR_KEYS.error]: 'sortBy parameter is invalid',
+    [VALID_ERROR_KEYS.error]: 'description parameter is invalid',
     status: 400,
   },
 };
@@ -44,5 +44,5 @@ module.exports = {
   DEFAULT_SORTBY,
   DEFAULT_DIRECTION,
   BASE_URL,
-  VALID_RESPONSE_KEYS
+  VALID_RESPONSE_KEYS,
 };

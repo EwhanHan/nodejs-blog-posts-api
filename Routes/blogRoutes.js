@@ -23,12 +23,12 @@ router.get(
       .optional()
       .isString()
       .isIn(VALID_SORTBY)
-      .withMessage(ERROR[VALID_PARAMS.sortBy][VALID_ERROR_KEYS.message]),
+      .withMessage(ERROR[VALID_PARAMS.sortBy][VALID_ERROR_KEYS.error]),
     check(VALID_PARAMS.direction)
       .optional()
       .isString()
       .isIn(VALID_DIRECTION)
-      .withMessage(ERROR[VALID_PARAMS.direction][VALID_ERROR_KEYS.message]),
+      .withMessage(ERROR[VALID_PARAMS.direction][VALID_ERROR_KEYS.error]),
   ],
   blogController.getPosts
 );
