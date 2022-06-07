@@ -25,7 +25,7 @@ const ERROR = {
     status: 400,
   },
   [VALID_PARAMS.direction]: {
-    [VALID_ERROR_KEYS.error]: 'description parameter is invalid',
+    [VALID_ERROR_KEYS.error]: 'direction parameter is invalid',
     status: 400,
   },
 };
