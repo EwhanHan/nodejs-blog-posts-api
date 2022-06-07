@@ -11,7 +11,7 @@ Response status code: 200
 const getPing = (req, res, next) => {
   let msg = { success: true };
   res.status(200).json({
-    msg,
+    ...msg,
   });
 };
 
