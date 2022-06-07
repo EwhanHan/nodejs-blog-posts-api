@@ -34,7 +34,16 @@ const sortPosts = (
   return posts;
 };
 
+const uniquePosts = (posts, key) => {
+  let seen = new Set();
+  return posts.filter((post) => {
+    let k = post[key];
+    return seen.has(k) ? false : seen.add(k);
+  });
+};
+
 module.exports = {
   blogPostsEndpointBuilder,
   sortPosts,
+  uniquePosts,
 };
