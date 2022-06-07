@@ -18,6 +18,23 @@ const blogPostsEndpointBuilder = (
   return endpoint;
 };
 
+const sortPosts = (
+  posts,
+  key = DEFAULT_SORTBY,
+  direction = DEFAULT_DIRECTION
+) => {
+  const ascending = (firstVal, secondVal) => firstVal[key] - secondVal[key];
+  const descending = (firstVal, secondVal) => secondVal[key] - firstVal[key];
+
+  if (direction === 'asc') {
+    posts.sort(ascending);
+  } else {
+    posts.sort(descending);
+  }
+  return posts;
+};
+
 module.exports = {
   blogPostsEndpointBuilder,
+  sortPosts,
 };

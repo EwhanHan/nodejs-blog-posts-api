@@ -13,7 +13,7 @@ const {
   VALID_ERROR_KEYS,
   VALID_RESPONSE_KEYS,
 } = require('../Constants/constants');
-const { blogPostsEndpointBuilder } = require('../Util/apiHelper');
+const { blogPostsEndpointBuilder, sortPosts } = require('../Util/apiHelper');
 
 const getPosts = async (req, res, next) => {
   const errors = validationResult(req);
@@ -42,7 +42,7 @@ const getPosts = async (req, res, next) => {
     .then((results) => {
       let data = results.map((data) => data.data.posts);
       let responsePosts = [...new Set(data.flat())];
-
+      responsePosts = sortPosts(responsePosts, sortBy, direction);
       let responseObject = { [VALID_RESPONSE_KEYS.posts]: responsePosts };
       res.status(200).json({ ...responseObject });
     })
